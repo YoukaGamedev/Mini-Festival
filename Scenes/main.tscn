@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bc0ylii3hbtcd"]
 
-[ext_resource type="Script" path="res://Script/main.gd" id="1_1cud4"]
+[ext_resource type="PackedScene" uid="uid://c6so2emgypgwi" path="res://Scenes/player.tscn" id="2_q7hvr"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_eubsa"]
 data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0, -50, 50, 0, -50)
@@ -9,13 +9,14 @@ data = PackedVector3Array(50, 0, 50, -50, 0, 50, 50, 0, -50, -50, 0, 50, -50, 0,
 size = Vector2(100, 100)
 
 [node name="Main" type="Node3D"]
-script = ExtResource("1_1cud4")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="Platform" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform"]
 shape = SubResource("ConcavePolygonShape3D_eubsa")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform"]
 mesh = SubResource("PlaneMesh_gm71c")
 skeleton = NodePath("../..")
+
+[node name="Player" parent="." instance=ExtResource("2_q7hvr")]
