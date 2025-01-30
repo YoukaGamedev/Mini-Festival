@@ -20,3 +20,6 @@ mesh = SubResource("PlaneMesh_gm71c")
 skeleton = NodePath("../..")
 
 [node name="Player" parent="." instance=ExtResource("2_q7hvr")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -2.98023e-08, 1, 0, -1, -2.98023e-08, 0, 41, 0)
